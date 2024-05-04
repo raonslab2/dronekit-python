@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/mrdev/./droneInfoDb_v2.101.py", line 6, in <module>
+    from dronekit import connect, VehicleMode, LocationGlobalRelative, LocationGlobal, Command
+  File "/usr/local/lib/python3.10/dist-packages/dronekit/__init__.py", line 2689, in <module>
+    class Parameters(collections.MutableMapping, HasObservers):
+AttributeError: module 'collections' has no attribute 'MutableMapping'

@@ -1,0 +1,186 @@
+2024-03-01 13:54:12,742 - __main__ - ERROR - Database configuration is incomplete.
+2024-03-01 13:55:35,554 - __main__ - ERROR - Database configuration is incomplete.
+2024-03-01 15:24:06,547 - __main__ - ERROR - Error connecting to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.103.py", line 61, in print_serversend
+    drone = connect(connection_string, wait_ready=True, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 15:24:52,913 - __main__ - ERROR - Error connecting to the drone: wait_ready experienced a timeout after 30 seconds.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.103.py", line 61, in print_serversend
+    drone = connect(connection_string, wait_ready=True, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3176, in connect
+    vehicle.wait_ready(still_waiting_interval=still_waiting_interval,
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2380, in wait_ready
+    raise TimeoutError('wait_ready experienced a timeout after %s seconds.' %
+dronekit.TimeoutError: wait_ready experienced a timeout after 30 seconds.
+2024-03-01 15:25:28,032 - __main__ - ERROR - Error connecting to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.103.py", line 61, in print_serversend
+    drone = connect(connection_string, wait_ready=True, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 15:26:03,152 - __main__ - ERROR - Error connecting to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.103.py", line 61, in print_serversend
+    drone = connect(connection_string, wait_ready=True, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 15:26:38,270 - __main__ - ERROR - Error connecting to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.103.py", line 61, in print_serversend
+    drone = connect(connection_string, wait_ready=True, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:07:05,174 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 57, in run
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:07:42,713 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 57, in run
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:10:10,258 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 58, in run
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:10:42,373 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 58, in run
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:11:39,179 - __main__ - ERROR - Failed to connect to the drone: wait_ready experienced a timeout after 30 seconds.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 59, in run
+    drone.wait_ready(True, raise_exception=True)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2380, in wait_ready
+    raise TimeoutError('wait_ready experienced a timeout after %s seconds.' %
+dronekit.TimeoutError: wait_ready experienced a timeout after 30 seconds.
+2024-03-01 16:12:11,303 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 58, in run
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:12:43,420 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 58, in run
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:13:56,122 - __main__ - ERROR - Failed to connect to the drone: wait_ready expects one or more string arguments.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 59, in run
+    drone.wait_ready(False, raise_exception=True)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2366, in wait_ready
+    raise ValueError('wait_ready expects one or more string arguments.')
+ValueError: wait_ready expects one or more string arguments.
+2024-03-01 16:32:59,442 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 89, in print_serversend
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:33:48,503 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 89, in print_serversend
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:45:44,104 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 89, in print_serversend
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:49:35,879 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 87, in print_serversend
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:50:06,996 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 87, in print_serversend
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
+2024-03-01 16:59:13,941 - __main__ - ERROR - Failed to connect to the drone: Timeout in initializing connection.
+Traceback (most recent call last):
+  File "D:\project4\git\dronekit-python\examples\droneWebsocket\droneInfoDb_v2.104.py", line 87, in print_serversend
+    drone = connect(connection_string, wait_ready=False, baud=57600)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 3172, in connect
+    vehicle.initialize(rate=rate, heartbeat_timeout=heartbeat_timeout)
+  File "D:\project4\Python312\Lib\site-packages\dronekit\__init__.py", line 2281, in initialize
+    raise APIException('Timeout in initializing connection.')
+dronekit.APIException: Timeout in initializing connection.
