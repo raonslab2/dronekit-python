@@ -315,10 +315,8 @@ def connect_websocket():
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    if len(sys.argv) < 3:
-        #host = "ws://10.8.0.1:5010/websocket"
-        host = "ws://13.209.238.3:5010/websocket"       
-        #host = "ws://127.0.0.1:5010/websocket"   
+    if len(sys.argv) < 3: 
+        host = "ws://192.168.0.6:5010/websocket"   
         droneHost = "lm_10001";  
         receivePort = "14541";
     else:
