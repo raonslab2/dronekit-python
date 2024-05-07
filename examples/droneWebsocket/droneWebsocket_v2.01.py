@@ -15,16 +15,32 @@ import sys
 import json
 import threading
 import datetime
- 
+import configparser  # 설정 파일을 읽기 위한 모듈 추가
+import os
+import argparse  # Add this line
 
+# 명령줄 인수 파싱을 위한 준비 
+parser = argparse.ArgumentParser(description="Configure drone connection and control")
+parser.add_argument('--drone_host', default="lm_10001", help="Drone host ID")
+parser.add_argument('--receive_port', default="14541", help="UDP port for receiving data")
+parser.add_argument('--websocket_host', default="ws://192.168.0.6:5010/websocket", help="WebSocket host")
+args = parser.parse_args()
+
+# 설정 파일 로드
+config = configparser.ConfigParser()
+config.read(os.path.join(os.path.dirname(__file__), 'config.ini'))
+
+# 환경설정 값 로드 또는 명령줄 인수 사용
+WEBSOCKET_HOST = config.get('websocket', 'websocket_host', fallback=args.websocket_host)
+DRONE_HOST = config.get('drone', 'drone_host', fallback=args.drone_host)
+RECEIVE_PORT = config.get('websocket', 'receive_port', fallback=args.receive_port)
 
 def on_message(ws, message):
     print("on_message: "+message) 
-    
     print("vehicle::"+str(vehicle))
     recData  = json.loads(message) 
     dlAction = recData["dlAction"]
-    dlName   =  recData["dlName"]
+    dlName   = recData["dlName"]
     
     loop = asyncio.get_event_loop()
     
@@ -51,11 +67,9 @@ def on_message(ws, message):
         dlOption = recData["dlOption"]
         loop.run_until_complete(drone_Goto(dlOption))
     else:
-        print("======알수없음============") 
-     
-    #loop = asyncio.get_event_loop()
-    #loop.run_until_complete(drone_Arm())
-    print("======complete============") 
+        print("Unknown action") 
+    print("Action complete") 
+
     
     
 async def drone_Auto():
@@ -233,26 +247,20 @@ def save_mission(aFileName):
     
     
     
-def on_open(ws): 
-    #drone first open
-    json_object_drone = {"DATA_GUBUN":"DRONE","DATA_REQUEST":"OPEN","DATA_DRONE_ID":droneHost}
+def on_open(ws):
+    # 'droneHost' 대신 전역 변수 'DRONE_HOST' 사용
+    json_object_drone = {"DATA_GUBUN": "DRONE", "DATA_REQUEST": "OPEN", "DATA_DRONE_ID": DRONE_HOST}
     json_string_drone = json.dumps(json_object_drone, indent=2)
-    #ws.send("Hello %d" % json_string)
     ws.send(json_string_drone)
-    
-    
-    t = threading.Thread(target=threadRun, args=(ws,1, 10000000,json_string_drone))
+
+    t = threading.Thread(target=threadRun, args=(ws, 1, 10000000, json_string_drone))
     t.start()
     
-def threadRun(ws,low, high,json_string_drone):
+def threadRun(ws, low, high, json_string_drone):
     total = 0
     running = True
-    
     i = 0
     for i in range(low, high):
-        #print("i ", i)
-        #ws.send(json_string_drone)
-        i = i + 1
         time.sleep(1)
  
     
@@ -301,46 +309,27 @@ def arm_and_takeoff(aTargetAltitude):
     #        break
     #    time.sleep(1)
 
+
 def connect_websocket(): 
-    
-    print ("host : %s" % host)
-    print ("droneHost : %s" % droneHost)
-    ws = websocket.WebSocketApp(host,
+    print("Connecting to websocket at: %s" % WEBSOCKET_HOST)
+    ws = websocket.WebSocketApp(WEBSOCKET_HOST,
                                 on_message=on_message,
                                 on_error=on_error,
                                 on_close=on_close)
     ws.on_open = on_open
-    ws.run_forever() 
+    ws.run_forever()
  
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    if len(sys.argv) < 3: 
-        host = "ws://192.168.0.6:5010/websocket"   
-        droneHost = "lm_10001";  
-        receivePort = "14541";
-    else:
-        host = sys.argv[1]
-        droneHost = sys.argv[2]
-        receivePort = sys.argv[3]
- 
-    connection_string = "udpin:0.0.0.0:"+receivePort;
-    #connection_string = "/dev/serial1";
-
-    # Connect to the Vehicle
+    connection_string = f"udpin:0.0.0.0:{RECEIVE_PORT}"
     print('Connecting to vehicle on: %s' % connection_string)
-    #vehicle = connect(connection_string, wait_ready=True)
-    vehicle = connect(connection_string, wait_ready=False, baud = 57600)
+    vehicle = connect(connection_string, wait_ready=False, baud=57600)
     vehicle.wait_ready(True, raise_exception=False)
- 
-    
-    print('start')
+    print('Connection successful')
     
     try:
         connect_websocket()
     except Exception as err:
-        print(err)
-        print("connect failed")
-    
-    #arm_and_takeoff(10)
+        print(f"Connection failed: {err}")
 
