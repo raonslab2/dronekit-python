@@ -59,64 +59,79 @@ async def drone_Auto():
     vehicle.mode = VehicleMode("AUTO")
 
 async def drone_WayPoint(dlWayPoint):
-    print("waypoint msg =======================================")
+    print("waypoint msg =======================================") 
+    #print(dlWayPoint["actions"]);
+    #print(dlWayPoint["home"]["coordinate"][0]);
+    #print(dlWayPoint["home"]["coordinate"][1]);
+    #for homePosition in dlWayPoint["home"]["coordinate"]:
+    #    print(homePosition);
     cmds = vehicle.commands
-    print("Clear any existing commands")
-    cmds.clear()
-
-    print("Define/add new commands.")
+    print(" Clear any existing commands")
+    cmds.clear() 
+    
+    print(" Define/add new commands.")
     
     actions = dlWayPoint["actions"]
     missiondetail = dlWayPoint["missionDetail"]
+    #Add MAV_CMD_NAV_TAKEOFF command. This is ignored if the vehicle is already in the air.
+    #cmds.add(Command( 0, 0, 0, mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT, mavutil.mavlink.MAV_CMD_NAV_TAKEOFF, 0, 0, 0, 0, 0, 0, 0, 0, 10))
+ 
+    cmds.add(Command( 0, 
+                      0, 
+                      0,
+                      int(missiondetail[0][0]["_waypoinframe"]),  #frame
+                      int(missiondetail[0][0]["_waypoinCommand"]), #command
+                      0, 
+                      0, 
+                      0, 
+                      0, 
+                      0, 
+                      0, 
+                      dlWayPoint["home"]["coordinate"][0], 
+                      dlWayPoint["home"]["coordinate"][1], 
+                      0))
     
-    if missiondetail and missiondetail[0]:
-        cmds.add(Command( 
-            0, 
-            0, 
-            0,
-            int(missiondetail[0][0]["_waypoinframe"]),  # frame
-            int(missiondetail[0][0]["_waypoinCommand"]), # command
-            0, 
-            0, 
-            0, 
-            0, 
-            0, 
-            0, 
-            dlWayPoint["home"]["coordinate"][0], 
-            dlWayPoint["home"]["coordinate"][1], 
-            0
-        ))
 
-    for i, tmWayPoint in enumerate(actions):
-        if i + 1 < len(missiondetail) and missiondetail[i + 1]:
-            _waypointParan1 = missiondetail[i + 1][0].get("_waypointParan1", "0")
-            _waypointParan2 = missiondetail[i + 1][0].get("_waypointParan2", "0")
-            _waypointParan3 = missiondetail[i + 1][0].get("_waypointParan3", "0")
-            _waypointParan4 = missiondetail[i + 1][0].get("_waypointParan4", "0")
+    ssi = 0 
+    for tmWayPoint in actions:
+        _waypointParan1 = missiondetail[ssi+1][0]["_waypointParan1"]
+        if _waypointParan1 == "":
+            _waypointParan1 = 0
             
-            _waypointParan1 = int(_waypointParan1) if _waypointParan1 else 0
-            _waypointParan2 = int(_waypointParan2) if _waypointParan2 else 0
-            _waypointParan3 = int(_waypointParan3) if _waypointParan3 else 0
-            _waypointParan4 = int(_waypointParan4) if _waypointParan4 else 0
+        _waypointParan2 = missiondetail[ssi+1][0]["_waypointParan2"]
+        if _waypointParan2 == "":
+            _waypointParan2 = 0
             
-            cmds.add(Command(
-                0,  # target_system
-                0,  # target_component
-                0,  # seq
-                int(missiondetail[i + 1][0]["_waypoinframe"]),  # frame
-                int(missiondetail[i + 1][0]["_waypoinCommand"]), # command
-                0,  # current
-                0,  # autocontinue
-                int(_waypointParan1),  # param1
-                int(_waypointParan2),  # param2
-                int(_waypointParan3),  # param3
-                int(_waypointParan4),  # param4
-                tmWayPoint["coordinate"][0], # lat x
-                tmWayPoint["coordinate"][1], # lon y
+        _waypointParan3 = missiondetail[ssi+1][0]["_waypointParan3"]
+        if _waypointParan3 == "":
+            _waypointParan3 = 0
+            
+        _waypointParan4 = missiondetail[ssi+1][0]["_waypointParan4"]
+        if _waypointParan4 == "":
+            _waypointParan4 = 0
+        
+        cmds.add(Command( 
+                0,  #target_system
+                0,  #target_component
+                0,  #seq
+                int(missiondetail[ssi+1][0]["_waypoinframe"]),  #frame
+                int(missiondetail[ssi+1][0]["_waypoinCommand"]), #command
+                0,  #current
+                0,  #autocontinue
+                int(_waypointParan1),  #param1
+                int(_waypointParan2),  #param2
+                int(_waypointParan3),  #param3
+                int(_waypointParan4),  #param4
+                tmWayPoint["coordinate"][0], #lat  x
+                tmWayPoint["coordinate"][1], #lon  y
+                #tmWayPoint["coordinate"][2]  # z
                 tmWayPoint["elevation"]  # z
             ))
-
-    print("Upload new commands to vehicle")
+        ssi = ssi +1
+    #last
+ 
+    
+    print(" Upload new commands to vehicle")
     cmds.upload()
 
 async def drone_Rtl():
@@ -239,7 +254,7 @@ def connect_websocket():
 if __name__ == "__main__":
     websocket.enableTrace(True)
     if len(sys.argv) < 3:
-        host = "ws://192.168.0.29:5010/websocket"
+        host = "ws://34.47.97.35:5010/websocket"
         droneHost = "lm_10001"
         receivePort = "14541"
     else:

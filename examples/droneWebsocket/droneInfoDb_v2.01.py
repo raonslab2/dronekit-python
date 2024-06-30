@@ -157,7 +157,7 @@ async def run(droneInfo,*args):
 def getConnection():
     
     try:     
-        con = db.connect(host='192.168.0.23', 
+        con = db.connect(host='34.47.97.35', 
                          user='mrdev', 
                          password='mrdev1',
                          db='sepm_db', 
@@ -237,7 +237,7 @@ if __name__ == "__main__":
     
     droneInfo = droneState()
     if len(sys.argv) < 3: 
-        host = "ws://192.168.0.23:5010/websocket" 
+        host = "ws://34.47.97.35:5010/websocket" 
         droneHost = "lm_10001"; 
         receivePort = "14540"; 
     else:
